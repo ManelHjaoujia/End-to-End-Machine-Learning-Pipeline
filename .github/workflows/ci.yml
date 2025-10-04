@@ -36,14 +36,6 @@ jobs:
         sleep 5
         echo " Flask app started successfully"
 
-    # Step 5: Test /predictdata endpoint (GET request)
+    # Step 5: Test /predictdata endpoint
     - name: Test /predictdata endpoint
-      run: |
-        python -c "import requests
-try:
-    resp = requests.get('http://127.0.0.1:5000/predictdata')
-    assert resp.status_code == 200
-    print(' /predictdata endpoint works')
-except Exception as e:
-    print(e)
-    exit(1)"
+      run: python endpoint_test.py
